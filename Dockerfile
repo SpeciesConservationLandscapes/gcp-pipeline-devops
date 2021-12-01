@@ -7,3 +7,6 @@ RUN apt-get update &&  apt-get install -y google-cloud-sdk
 
 RUN mkdir -p /app
 WORKDIR /app
+COPY ./templates .
+COPY ./scripts .
+COPY ./functions .

@@ -10,7 +10,7 @@ gcloud \
     functions deploy \
     create_vm \
     --source=$CUR_DIR/functions/create_orchestration_vm \
-    --stage-bucket=pubsub_orchestration_vm \
+    --stage-bucket=pubsub_orchestration_vm_hii \
     --runtime=python39 \
     --entry-point=pubsub_handler \
     --trigger-topic=scl-pipeline \

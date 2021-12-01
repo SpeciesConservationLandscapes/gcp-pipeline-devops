@@ -2,6 +2,6 @@
 
 DEPLOYMENT_NAME="scl-pipeline-pubsub"
 
-source "/scripts/setup.sh"
+source "/app/scripts/setup.sh"
 
-gcloud deployment-manager deployments create $DEPLOYMENT_NAME --template /templates/scl-pipeline-pubsub.jinja
+gcloud deployment-manager deployments create $DEPLOYMENT_NAME --template /app/templates/scl-pipeline-pubsub.jinja

@@ -69,6 +69,7 @@ def deploy_vm(deploy_name, vm, tasks):
         .execute()
     )
 
+
 def pubsub_handler(event, context):
     message = base64.b64decode(event["data"]).decode("utf-8")
     pipeline_config = json.loads(message)
