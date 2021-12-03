@@ -4,4 +4,4 @@ DEPLOYMENT_NAME="create-vm-function"
 
 source "/app/scripts/setup.sh"
 
-gcloud alpha functions delete create_vm
+gcloud alpha functions delete -q create_vm
