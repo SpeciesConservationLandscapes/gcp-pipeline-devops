@@ -1,0 +1,38 @@
+resources:
+- type: compute.v1.instance
+  name: {{deploy_name}}
+  properties:
+    zone: {{ vm["zone"] }}
+    machineType: https://www.googleapis.com/compute/v1/projects/{{ env["project"] }}/zones/{{ vm["zone"] }}/machineTypes/{{ vm["machine-type"] }}
+    serviceAccounts:
+    - email: {{ env["client_email"] }}
+      scopes:
+      - https://www.googleapis.com/auth/cloud-platform
+      - https://www.googleapis.com/auth/compute
+      - https://www.googleapis.com/auth/compute.readonly
+      - https://www.googleapis.com/auth/devstorage.read_only
+      - https://www.googleapis.com/auth/logging.write
+    disks:
+    - deviceName: boot
+      type: PERSISTENT
+      boot: true
+      autoDelete: true
+      initializeParams:
+        sourceImage: https://www.googleapis.com/compute/v1/projects/debian-cloud/global/images/family/debian-10
+        diskSizeGb: {{ vm["disk-size-gb"] }}
+        # diskType: pd-balanced
+    networkInterfaces:
+    - network: https://www.googleapis.com/compute/v1/projects/{{ env["project"] }}/global/networks/default
+      accessConfigs:
+      - name: External NAT
+        type: ONE_TO_ONE_NAT
+    metadata:
+      items:
+      - key: startup-script
+        value: |-
+          #! /bin/bash
+          export PROJECT_ID="{{ env["project"] }}"
+          export DEPLOY_NAME="{{ deploy_name }}"
+          export TASKS={{ tasks }}
+          export SERVICE_ACCOUNT_KEY={{ env["service_account_key"] }}
+          {{ startup_script | indent(10) }}
