@@ -10,7 +10,7 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sh ./get-docker.sh
 
 # Fetch and setup Task orchestration code
-git clone -b develop --single-branch https://github.com/SpeciesConservationLandscapes/task_orchestration.git
+git clone -b main --single-branch https://github.com/SpeciesConservationLandscapes/task_orchestration.git
 cd task_orchestration
 python3 -m pip install -r requirements.txt
 
