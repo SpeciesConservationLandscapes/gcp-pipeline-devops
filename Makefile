@@ -30,6 +30,8 @@ scl3_delete:
 	@make scl3_delete_pubsub
 	@make scl3_delete_pubsub_function
 
+scl3_publish_sample:
+	@docker run -w /app -v `pwd`:/app  --env-file=.env_scl3 --rm -it --entrypoint /app/scripts/publish_sample_msg.sh $(VM_IMAGE)
 
 ### HII ###
 
@@ -52,6 +54,9 @@ hii_deploy:
 hii_delete:
 	@make hii_delete_pubsub
 	@make hii_delete_pubsub_function
+
+hii_publish_sample:
+	@docker run -w /app -v `pwd`:/app  --env-file=.env_hii --rm -it --entrypoint /app/scripts/publish_sample_msg.sh $(VM_IMAGE)
 
 cleanup:
 	isort `pwd`/src/*.py

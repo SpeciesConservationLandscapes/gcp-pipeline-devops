@@ -23,12 +23,14 @@ def _get_startup_script_content():
     with open("boot.sh", "r") as f:
         return f.read()
 
+def _get_account_service_key():
+    service_account_str = os.environ["SERVICE_ACCOUNT_KEY"][1:-1]
+    return json.loads(service_account_str)
 
 def _get_target_config_content(deploy_name, vm, tasks):
     with open("scl-orchestration-vm.jinja", "r") as f:
         template = Template(f.read())
-        service_account_str = os.environ["SERVICE_ACCOUNT_KEY"][1:-1]
-        service_account = json.loads(service_account_str)
+        service_account = _get_account_service_key()
         return template.render(
             env={
                 "project": service_account["project_id"],
@@ -56,6 +58,7 @@ def _get_name():
 
 
 def deploy_vm(deploy_name, vm, tasks):
+    service_account = _get_account_service_key()
     content = _get_target_config_content(deploy_name, vm, tasks)
     req = {
         "name": deploy_name,
@@ -68,7 +71,7 @@ def deploy_vm(deploy_name, vm, tasks):
 
     deploy_manager = googleapiclient.discovery.build("deploymentmanager", "v2")
     return (deploy_manager.deployments()
-        .insert(project=os.environ["PROJECT_ID"], body=req)
+        .insert(project=service_account["project_id"], body=req)
         .execute()
     )
 
