@@ -47,7 +47,7 @@ When deploying to a specific Google Project, replace `[PREFIX]` with:
 
 **Run Sample Pipeline:**
 
-`make [PREFIX]_publish_sample:`
+`make [PREFIX]_publish_sample`
 
 
 
