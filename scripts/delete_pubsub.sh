@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-DEPLOYMENT_NAME="scl-pipeline-pubsub"
+DEPLOYMENT_NAME="pipeline-pubsub"
 
-source "/scripts/setup.sh"
+source "/app/scripts/setup.sh"
 
 gcloud deployment-manager deployments delete -q $DEPLOYMENT_NAME

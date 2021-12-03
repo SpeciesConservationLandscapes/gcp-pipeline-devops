@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 
-DEPLOYMENT_NAME="scl-create-vm-function"
+DEPLOYMENT_NAME="create-vm-function"
 
-CUR_DIR=`pwd` 
-source "$CUR_DIR/scripts/setup.sh"
+source "/app/scripts/setup.sh"
+
+secrets=""
+for name in `gcloud secrets list --format="value(name)"`; do
+  secrets="$secrets$name=$name:latest,"
+done
 
 gcloud \
     alpha \
     functions deploy \
     create_vm \
-    --source=$CUR_DIR/functions/create_orchestration_vm \
+    --source=/app/functions/create_orchestration_vm \
     --stage-bucket=pubsub_orchestration_vm \
     --runtime=python39 \
     --entry-point=pubsub_handler \
-    --trigger-topic=scl-pipeline \
-    --set-secrets=PROJECT_ID=PROJECT_ID:latest,SERVICE_ACCOUNT_KEY=SERVICE_ACCOUNT_KEY:latest
+    --trigger-topic=task-pipeline \
+    --set-secrets=$secrets

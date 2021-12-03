@@ -16,7 +16,7 @@ python3 -m pip install -r requirements.txt
 
 # Run pipeline
 echo $TASKS > tasks.json
-python3 src/task.py --pipeline_file="tasks.json" --exit_on_error --google_vm_teardown
+python3 src/task.py --pipeline_file="tasks.json" --exit_on_error
 
 # Tear down VM
 echo $SERVICE_ACCOUNT_KEY > service_account.json

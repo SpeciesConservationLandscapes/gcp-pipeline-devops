@@ -27,9 +27,12 @@ def _get_startup_script_content():
 def _get_target_config_content(deploy_name, vm, tasks):
     with open("scl-orchestration-vm.jinja", "r") as f:
         template = Template(f.read())
+        service_account_str = os.environ["SERVICE_ACCOUNT_KEY"][1:-1]
+        service_account = json.loads(service_account_str)
         return template.render(
             env={
-                "project": os.environ["PROJECT_ID"],
+                "project": service_account["project_id"],
+                "client_email": service_account["client_email"],
                 "service_account_key": os.environ["SERVICE_ACCOUNT_KEY"],
             },
             deploy_name=deploy_name,
