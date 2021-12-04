@@ -14,7 +14,7 @@ gcloud \
     functions deploy \
     create_vm \
     --source=/app/functions/create_orchestration_vm \
-    --stage-bucket=pubsub_orchestration_vm \
+    --stage-bucket=pubsub_orchestration_vm-$PROJECT_ID \
     --runtime=python39 \
     --entry-point=pubsub_handler \
     --trigger-topic=task-pipeline \

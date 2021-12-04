@@ -4,11 +4,11 @@ VM_IMAGE=scl3/devops
 build:
 	docker build -t $(VM_IMAGE) .
 
-shell:
-	docker run -w /app --env-file=.env_scl3 -v `pwd`:/app --rm -it --entrypoint bash $(VM_IMAGE)
-
 
 ### SCL3 ###
+
+shell_scl3:
+	docker run -w /app --env-file=.env_scl3 -v `pwd`:/app --rm -it --entrypoint bash $(VM_IMAGE)
 
 scl3_deploy_pubsub_function:
 	@docker run -w /app -v `pwd`:/app --env-file=.env_scl3 --rm -it --entrypoint /app/scripts/deploy_function.sh $(VM_IMAGE)
@@ -33,7 +33,13 @@ scl3_delete:
 scl3_publish_sample:
 	@docker run -w /app -v `pwd`:/app  --env-file=.env_scl3 --rm -it --entrypoint /app/scripts/publish_sample_msg.sh $(VM_IMAGE)
 
+scl3_publish_fullyear:
+	@docker run -w /app -v `pwd`:/app  --env-file=.env_scl3 --rm -it --entrypoint /app/scripts/publish_scl3_fulldate.sh $(VM_IMAGE)
+
 ### HII ###
+
+shell_hii:
+	docker run -w /app --env-file=.env_hii -v `pwd`:/app --rm -it --entrypoint bash $(VM_IMAGE)
 
 hii_deploy_pubsub_function:
 	@docker run -w /app -v `pwd`:/app --env-file=.env_hii --rm -it --entrypoint /app/scripts/deploy_function.sh $(VM_IMAGE)
