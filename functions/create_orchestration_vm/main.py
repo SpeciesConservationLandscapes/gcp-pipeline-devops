@@ -21,10 +21,8 @@ def _get_startup_script_content():
 
 
 def _get_account_service_key():
-    service_account_str = os.environ["SERVICE_ACCOUNT_KEY"]
-    print(service_account_str)
-    print(json.loads(service_account_str, strict=False))
-    return json.loads(service_account_str)
+    service_account_str = os.environ["SERVICE_ACCOUNT_KEY"][1:-1]
+    return json.loads(service_account_str, strict=False)
 
 
 def _get_target_config_content(deploy_name, vm, tasks):
