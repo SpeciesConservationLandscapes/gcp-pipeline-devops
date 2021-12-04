@@ -35,4 +35,8 @@ resources:
           export DEPLOY_NAME="{{ deploy_name }}"
           export TASKS={{ tasks }}
           export SERVICE_ACCOUNT_KEY={{ env["service_account_key"] }}
+          export OBSDB_HOST={{ env["OBSDB_HOST"] }}
+          export OBSDB_NAME={{ env["OBSDB_NAME"] }}
+          export OBSDB_USER={{ env["OBSDB_USER"] }}
+          export OBSDB_PASS={{ env["OBSDB_PASS"] }}
           {{ startup_script | indent(10) }}
