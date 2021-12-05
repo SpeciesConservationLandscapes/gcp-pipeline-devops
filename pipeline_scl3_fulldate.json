@@ -1,6 +1,6 @@
 {
     "vm": {
-        "machine-type": "e2-medium",
+        "machine-type": "e2-highmem-2",
         "disk-size-gb": 10,
         "zone": "us-central1-f"
     },
