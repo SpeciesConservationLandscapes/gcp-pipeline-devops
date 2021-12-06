@@ -8,11 +8,7 @@ import googleapiclient.discovery
 from jinja2 import Template
 
 
-DEFAULT_VM_CONFIG = {
-    "vm-size": "e2-micro",
-    "disk-size-gb": 10,
-    "zone": "us-central1-f"
-}
+DEFAULT_VM_CONFIG = {"vm-size": "e2-micro", "disk-size-gb": 10, "zone": "us-central1-f"}
 
 
 def json_escape(tasks):
@@ -23,9 +19,11 @@ def _get_startup_script_content():
     with open("boot.sh", "r") as f:
         return f.read()
 
+
 def _get_account_service_key():
     service_account_str = os.environ["SERVICE_ACCOUNT_KEY"][1:-1]
-    return json.loads(service_account_str)
+    return json.loads(service_account_str, strict=False)
+
 
 def _get_target_config_content(deploy_name, vm, tasks):
     with open("scl-orchestration-vm.jinja", "r") as f:
@@ -36,6 +34,10 @@ def _get_target_config_content(deploy_name, vm, tasks):
                 "project": service_account["project_id"],
                 "client_email": service_account["client_email"],
                 "service_account_key": os.environ["SERVICE_ACCOUNT_KEY"],
+                "OBSDB_HOST": os.environ["OBSDB_HOST"],
+                "OBSDB_NAME": os.environ["OBSDB_NAME"],
+                "OBSDB_USER": os.environ["OBSDB_USER"],
+                "OBSDB_PASS": os.environ["OBSDB_PASS"],
             },
             deploy_name=deploy_name,
             vm=vm,
@@ -66,14 +68,16 @@ def deploy_vm(deploy_name, vm, tasks):
             "config": {
                 "content": content,
             }
-        }
+        },
     }
 
     deploy_manager = googleapiclient.discovery.build("deploymentmanager", "v2")
-    return (deploy_manager.deployments()
+    return (
+        deploy_manager.deployments()
         .insert(project=service_account["project_id"], body=req)
         .execute()
     )
+
 
 def pubsub_handler(event, context):
     message = base64.b64decode(event["data"]).decode("utf-8")
@@ -82,7 +86,7 @@ def pubsub_handler(event, context):
     if not tasks:
         logging.warning("No tasks")
         return
-    
+
     deploy_name = _get_name()
     deploy_vm(deploy_name, vm, tasks)
 
