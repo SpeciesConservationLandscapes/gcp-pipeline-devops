@@ -10,7 +10,7 @@
                 "image": "scl3/task_scl_structural_habitat",
                 "cmd": "python task.py",
                 "args": {
-                    "-d": "2020-01-01",
+                    "-d": "2001-01-01",
                     "-s": "Panthera_tigris"
                 }
             }
@@ -20,7 +20,7 @@
                 "image": "scl3/task_scl_eff_pot_hab",
                 "cmd": "python task.py",
                 "args": {
-                    "-d": "2020-01-01",
+                    "-d": "2001-01-01",
                     "-s": "Panthera_tigris"
                 }
             }
@@ -30,9 +30,19 @@
                 "image": "scl3/task_scl_classification",
                 "cmd": "python task.py",
                 "args": {
-                    "-d": "2020-01-01",
+                    "-d": "2001-01-01",
                     "-s": "Panthera_tigris",
-                    "-u": ""
+                    "--intermediate": ""
+                }
+            }
+        ],
+        [
+            {
+                "image": "scl3/task_scl_stats",
+                "cmd": "python task.py",
+                "args": {
+                    "-d": "2001-01-01",
+                    "-s": "Panthera_tigris"
                 }
             }
         ]
