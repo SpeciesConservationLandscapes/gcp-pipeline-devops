@@ -18,8 +18,10 @@ python3 -m pip install -r requirements.txt
 echo $TASKS > tasks.json
 python3 src/task.py --pipeline_file="tasks.json" --raiseonfail
 
-# Tear down VM
-echo $SERVICE_ACCOUNT_KEY > service_account.json
-gcloud config set project $PROJECT_ID
-gcloud auth activate-service-account --key-file "service_account.json"
-gcloud deployment-manager deployments delete -q $DEPLOY_NAME
+if [[ "${AUTOSHUTDOWN}" != "false" ]]; then
+    # Tear down VM
+    echo $SERVICE_ACCOUNT_KEY > service_account.json
+    gcloud config set project $PROJECT_ID
+    gcloud auth activate-service-account --key-file "service_account.json"
+    gcloud deployment-manager deployments delete -q $DEPLOY_NAME
+fi
