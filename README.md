@@ -73,14 +73,17 @@ When deploying to a specific Google Project, replace `[PREFIX]` with:
     "vm": {
         "machine-type": string (defaults: "e2-micro"),
         "disk-size-gb": integer (defaults: 10),
-        "zone": string (defaults: "us-central1-f")
+        "zone": string (defaults: "us-central1-f"),
+        "autoshutdown": boolean (defaults: true)
     },
     "tasks": [
         [
             {
                 "image": string,
                 "cmd": string,
-                "args": object
+                "args": object,
+                "volumes": object,
+                "env_vars": object
             }
         ]
     ]

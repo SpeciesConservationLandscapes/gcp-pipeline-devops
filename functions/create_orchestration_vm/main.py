@@ -8,7 +8,12 @@ import googleapiclient.discovery
 from jinja2 import Template
 
 
-DEFAULT_VM_CONFIG = {"vm-size": "e2-micro", "disk-size-gb": 10, "zone": "us-central1-f"}
+DEFAULT_VM_CONFIG = {
+    "vm-size": "e2-micro",
+    "disk-size-gb": 10,
+    "zone": "us-central1-f",
+    "autoshutdown": True
+}
 
 
 def json_escape(tasks):
@@ -33,11 +38,7 @@ def _get_target_config_content(deploy_name, vm, tasks):
             env={
                 "project": service_account["project_id"],
                 "client_email": service_account["client_email"],
-                "service_account_key": os.environ["SERVICE_ACCOUNT_KEY"],
-                "OBSDB_HOST": os.environ["OBSDB_HOST"],
-                "OBSDB_NAME": os.environ["OBSDB_NAME"],
-                "OBSDB_USER": os.environ["OBSDB_USER"],
-                "OBSDB_PASS": os.environ["OBSDB_PASS"],
+                "service_account_key": os.environ["SERVICE_ACCOUNT_KEY"]
             },
             deploy_name=deploy_name,
             vm=vm,
