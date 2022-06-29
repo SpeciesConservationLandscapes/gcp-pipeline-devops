@@ -1,6 +1,6 @@
 {
     "vm": {
-        "machine-type": "e2-highmem-2",
+        "machine-type": "e2-medium",
         "disk-size-gb": 10,
         "zone": "us-central1-f"
     },
@@ -12,6 +12,22 @@
                 "args": {
                     "-d": "2001-01-01",
                     "-s": "Panthera_tigris"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "PROJECT_ID": "PROJECT_ID"
+                }
+            },
+            {
+                "image": "scl3/task_scl_structural_habitat",
+                "cmd": "python task.py",
+                "args": {
+                    "-d": "2002-01-01",
+                    "-s": "Panthera_tigris"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "PROJECT_ID": "PROJECT_ID"
                 }
             }
         ],
@@ -22,6 +38,10 @@
                 "args": {
                     "-d": "2001-01-01",
                     "-s": "Panthera_tigris"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "PROJECT_ID": "PROJECT_ID"
                 }
             }
         ],
@@ -33,6 +53,14 @@
                     "-d": "2001-01-01",
                     "-s": "Panthera_tigris",
                     "--intermediate": ""
+                },
+                "env_vars": {
+                    "OBSDB_HOST": "OBSDB_HOST",
+                    "OBSDB_NAME": "OBSDB_NAME",
+                    "OBSDB_PASS": "OBSDB_PASS",
+                    "OBSDB_USER": "OBSDB_USER",
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "PROJECT_ID": "PROJECT_ID"
                 }
             }
         ],
@@ -43,6 +71,10 @@
                 "args": {
                     "-d": "2001-01-01",
                     "-s": "Panthera_tigris"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "PROJECT_ID": "PROJECT_ID"
                 }
             }
         ]
