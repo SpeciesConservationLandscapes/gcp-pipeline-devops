@@ -26,7 +26,11 @@ def _get_startup_script_content():
 
 
 def _get_account_service_key():
-    service_account_str = os.environ["SERVICE_ACCOUNT_KEY"][1:-1]
+    service_account_str = os.environ["SERVICE_ACCOUNT_KEY"]
+    if service_account_str.startswith("'"):
+        service_account_str = service_account_str[1:]
+    if service_account_str.endswith("'"):
+        service_account_str = service_account_str[:-1]
     return json.loads(service_account_str, strict=False)
 
 
