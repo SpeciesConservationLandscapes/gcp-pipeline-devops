@@ -1,0 +1,28 @@
+{
+    "vm": {
+        "machine-type": "e2-medium",
+        "disk-size-gb": 10,
+        "zone": "us-central1-f",
+        "autoshutdown": true
+    },
+    "tasks": [
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2001-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ]
+    ]
+}

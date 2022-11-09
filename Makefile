@@ -36,6 +36,10 @@ scl3_publish_sample:
 scl3_publish_fullyear:
 	@docker run -w /app -v `pwd`:/app  --env-file=.env_scl3 --rm -it --entrypoint /app/scripts/publish_scl3_fulldate.sh $(VM_IMAGE)
 
+
+tcl_report_data:
+	@docker run -w /app -v `pwd`:/app  --env-file=.env_scl3 --rm -it --entrypoint /app/scripts/publish_tcl_report_data.sh $(VM_IMAGE)
+
 ### HII ###
 
 shell_hii:

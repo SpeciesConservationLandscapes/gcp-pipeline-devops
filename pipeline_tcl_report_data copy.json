@@ -1,0 +1,350 @@
+{
+    "vm": {
+        "machine-type": "e2-medium",
+        "disk-size-gb": 10,
+        "zone": "us-central1-f",
+        "autoshutdown": true
+    },
+    "tasks": [
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2001-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            },
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2002-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ],
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2003-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            },
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2004-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ],
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2005-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            },
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2006-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ],
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2007-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            },
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2008-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ],
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2009-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            },
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2010-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ],
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2011-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            },
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2012-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ],
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2013-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            },
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2014-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ],
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2015-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            },
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2016-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ],
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2017-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            },
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2018-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ],
+        [
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2019-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            },
+            {
+                "image": "scl3/task_scl_report_data",
+                "cmd": "python task.py",
+                "args": {
+                    "--taskdate": "2020-01-01"
+                },
+                "env_vars": {
+                    "SERVICE_ACCOUNT_KEY": "SERVICE_ACCOUNT_KEY",
+                    "DB_NAME": "DB_NAME",
+                    "DB_USER": "DB_USER",
+                    "DB_PASSWORD": "DB_PASSWORD",
+                    "DB_HOST": "DB_HOST",
+                    "DB_PORT": "DB_PORT",
+                    "DB_REPORT_TABLE": "DB_REPORT_TABLE"
+                }
+            }
+        ]
+    ]
+}

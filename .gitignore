@@ -3,3 +3,5 @@
 service_account.json
 
 .idea/
+
+.DS_Store
